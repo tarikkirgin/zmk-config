@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include "clog_v2.dtsi"
+#include "clog_v4.dtsi"
 
 &kscan0 {
     col-gpios
@@ -14,8 +14,4 @@
         , <&xiao_d 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
         , <&xiao_d 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
         ;
-};
-
-&left_encoder {
-    status = "okay";
 };

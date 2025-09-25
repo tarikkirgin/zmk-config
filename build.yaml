@@ -20,6 +20,6 @@
 ---
 include:
   - board: seeeduino_xiao_ble
-    shield: clog_v2_left
+    shield: clog_v4_left
   - board: seeeduino_xiao_ble
-    shield: clog_v2_right
+    shield: clog_v4_right
