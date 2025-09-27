@@ -21,7 +21,7 @@
 include:
   - board: seeeduino_xiao_ble
     shield: clog_v4_left
+    snippet: zmk-usb-logging
   - board: seeeduino_xiao_ble
     shield: clog_v4_right
-  - board: seeeduino_xiao_ble
-    shield: tester_xiao
+    snippet: zmk-usb-logging
