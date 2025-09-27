@@ -20,6 +20,6 @@
 ---
 include:
   - board: seeeduino_xiao_ble
-    shield: geta_left
+    shield: clog_v4_left
   - board: seeeduino_xiao_ble
-    shield: geta_right
+    shield: clog_v4_right
