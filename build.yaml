@@ -23,3 +23,5 @@ include:
     shield: clog_v4_left
   - board: seeeduino_xiao_ble
     shield: clog_v4_right
+  - board: seeeduino_xiao_ble
+    shield: tester_xiao
