@@ -1,0 +1,12 @@
+/*
+ * Copyright (c) 2022 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+ #include "geta.dtsi"
+&kscan0 {
+     col-gpios
+        = <&xiao_d 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>
+         ;
+ };
