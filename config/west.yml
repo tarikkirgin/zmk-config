@@ -1,6 +1,4 @@
 manifest:
-  defaults:
-    revision: v0.3
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
@@ -21,6 +19,7 @@ manifest:
       remote: urob
       revision: main
     - name: zmk-tri-state
-      remote: caksoylar
+      remote: urob
       revision: main
-  path: config
+  self:
+    path: config
