@@ -1,7 +1,0 @@
-#define ZMK_PLATFORM_MACRO(NAME, WIN_BLOCK, MAC_BLOCK) \
-    ZMK_MACRO(NAME##_win, WIN_BLOCK) \
-    ZMK_MACRO(NAME##_mac, MAC_BLOCK) \
-    ZMK_LAYER_MORPH(NAME, \
-        layers = <WIN MAC>; \
-        bindings = <&NAME##_win>, <&NAME##_mac>; \
-    )

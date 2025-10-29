@@ -6,7 +6,6 @@
 #include <dt-bindings/zmk/pointing.h>
 #include "zmk-helpers/helper.h"
 #include "zmk-helpers/key-labels/34.h"
-#include "utils.dtsi"
 
 #define WIN 0
 #define MAC 1
@@ -55,12 +54,60 @@ ZMK_MOD_MORPH(slash_both,
 ZMK_MACRO(win_mode, bindings = <&tog WIN &uc UC_SET_WIN_ALT>)
 ZMK_MACRO(mac_mode, bindings = <&tog MAC &uc UC_SET_MACOS>)
 
-ZMK_PLATFORM_MACRO(del_word, bindings = <&kp LC(BSPC)>;, bindings = <&kp LA(BSPC)>;)
+ZMK_MACRO(del_word_win,
+    bindings = <&kp LC(BSPC)>;
+)
+ZMK_MACRO(del_word_mac,
+    bindings = <&kp LA(BSPC)>;
+)
+ZMK_LAYER_MORPH(del_word,
+    layers = <WIN MAC>;
+    bindings = <&del_word_win &del_word_mac>;
+)
 
-ZMK_PLATFORM_MACRO(cut, bindings = <&kp LC(X)>;, bindings = <&kp LG(X)>;)
-ZMK_PLATFORM_MACRO(copy, bindings = <&kp LC(C)>;, bindings = <&kp LG(C)>;)
-ZMK_PLATFORM_MACRO(paste, bindings = <&kp LC(V)>;, bindings = <&kp LG(V)>;)
-ZMK_PLATFORM_MACRO(sel_all, bindings = <&kp LC(A)>;, bindings = <&kp LG(A)>;)
+ZMK_MACRO(cut_win,
+    bindings = <&kp LC(X)>;
+)
+ZMK_MACRO(cut_mac,
+    bindings = <&kp LG(X)>;
+)
+ZMK_LAYER_MORPH(cut,
+    layers = <WIN MAC>;
+    bindings = <&cut_win &cut_mac>;
+)
+
+ZMK_MACRO(copy_win,
+    bindings = <&kp LC(C)>;
+)
+ZMK_MACRO(copy_mac,
+    bindings = <&kp LG(C)>;
+)
+ZMK_LAYER_MORPH(copy,
+    layers = <WIN MAC>;
+    bindings = <&copy_win &copy_mac>;
+)
+
+ZMK_MACRO(paste_win,
+    bindings = <&kp LC(V)>;
+)
+ZMK_MACRO(paste_mac,
+    bindings = <&kp LG(V)>;
+)
+ZMK_LAYER_MORPH(paste,
+    layers = <WIN MAC>;
+    bindings = <&paste_win &paste_mac>;
+)
+
+ZMK_MACRO(sel_all_win,
+    bindings = <&kp LC(A)>;
+)
+ZMK_MACRO(sel_all_mac,
+    bindings = <&kp LG(A)>;
+)
+ZMK_LAYER_MORPH(sel_all,
+    layers = <WIN MAC>;
+    bindings = <&sel_all_win &sel_all_mac>;
+)
 
 // f + j = caps word
 ZMK_COMBO(caps_word, &caps_word, LM1 RM1, ALL, 25)
@@ -89,7 +136,7 @@ ZMK_CONDITIONAL_LAYER(kbd_layer, SYM FUN, KBD)
                                        &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O     
             //╭──────────┬──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┬──────────╮
             //│  Q       │  A       │  S       │  D       │  F       │  G       │   │  H       │  J       │  K       │  L       │  ; :     │  P       │
-                 &kp Q    W_HM_L(A,    S,         D,         F       )  &kp G          &kp H    W_HM_R(J,    K,         L          SEMI    )  &kp P
+                 &kp Q    W_HM_L(A,    S,         D,         F       )  &kp G          &kp H    W_HM_R(J,    K,         L       ,  SEMI    )  &kp P
             //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
             //           │  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , !      │ . ?      │  / \     │
                             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M     &kp COMMA  &kp DOT   &kp SLASH
@@ -107,7 +154,7 @@ ZMK_CONDITIONAL_LAYER(kbd_layer, SYM FUN, KBD)
                                        &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O     
             //╭──────────┬──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┬──────────╮
             //│  Q       │  A       │  S       │  D       │  F       │  G       │   │  H       │  J       │  K       │  L       │  ; :     │  P       │
-                 &kp Q    M_HM_L(A,    S,         D,         F       )  &kp G          &kp H    M_HM_R (J,   K,         L          SEMI    )  &kp P
+                 &kp Q    M_HM_L(A,    S,         D,         F       )  &kp G          &kp H    M_HM_R (J,   K,         L       ,  SEMI    )  &kp P
             //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
             //           │  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , !      │ . ?      │  / \     │
                             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &kp COMMA   &kp DOT   &kp SLASH
