@@ -54,60 +54,27 @@ ZMK_MOD_MORPH(slash_both,
 ZMK_MACRO(win_mode, bindings = <&tog WIN &uc UC_SET_WIN_ALT>;)
 ZMK_MACRO(mac_mode, bindings = <&tog MAC &uc UC_SET_MACOS>;)
 
-ZMK_MACRO(del_word_win,
-    bindings = <&kp LC(BSPC)>;
-)
-ZMK_MACRO(del_word_mac,
-    bindings = <&kp LA(BSPC)>;
-)
-ZMK_LAYER_MORPH(del_word,
-    layers = <WIN MAC>;
-    bindings = <&del_word_win &del_word_mac>;
-)
+ZMK_MACRO(del_word_win, bindings = <&kp LC(BSPC)>;)
+ZMK_MACRO(del_word_mac, bindings = <&kp LA(BSPC)>;)
 
-ZMK_MACRO(cut_win,
-    bindings = <&kp LC(X)>;
-)
-ZMK_MACRO(cut_mac,
-    bindings = <&kp LG(X)>;
-)
-ZMK_LAYER_MORPH(cut,
-    layers = <WIN MAC>;
-    bindings = <&cut_win &cut_mac>;
-)
+ZMK_CONDITIONAL_LAYER(del_word, WIN MAC, <&del_word_win &del_word_mac>)
 
-ZMK_MACRO(copy_win,
-    bindings = <&kp LC(C)>;
-)
-ZMK_MACRO(copy_mac,
-    bindings = <&kp LG(C)>;
-)
-ZMK_LAYER_MORPH(copy,
-    layers = <WIN MAC>;
-    bindings = <&copy_win &copy_mac>;
-)
+ZMK_MACRO(cut_win, bindings = <&kp LC(X)>;)
+ZMK_MACRO(cut_mac, bindings = <&kp LG(X)>;)
+ZMK_CONDITIONAL_LAYER(cut, WIN MAC, <&cut_win &cut_mac>)
 
-ZMK_MACRO(paste_win,
-    bindings = <&kp LC(V)>;
-)
-ZMK_MACRO(paste_mac,
-    bindings = <&kp LG(V)>;
-)
-ZMK_LAYER_MORPH(paste,
-    layers = <WIN MAC>;
-    bindings = <&paste_win &paste_mac>;
-)
+ZMK_MACRO(copy_win, bindings = <&kp LC(C)>;)
+ZMK_MACRO(copy_mac, bindings = <&kp LG(C)>;)
+ZMK_CONDITIONAL_LAYER(copy, WIN MAC, <&copy_win &copy_mac>)
 
-ZMK_MACRO(sel_all_win,
-    bindings = <&kp LC(A)>;
-)
-ZMK_MACRO(sel_all_mac,
-    bindings = <&kp LG(A)>;
-)
-ZMK_LAYER_MORPH(sel_all,
-    layers = <WIN MAC>;
-    bindings = <&sel_all_win &sel_all_mac>;
-)
+ZMK_MACRO(paste_win, bindings = <&kp LC(V)>;)
+ZMK_MACRO(paste_mac, bindings = <&kp LG(V)>;)
+ZMK_CONDITIONAL_LAYER(paste, WIN MAC, <&paste_win &paste_mac>)
+
+ZMK_MACRO(sel_all_win, bindings = <&kp LC(A)>;)
+ZMK_MACRO(sel_all_mac, bindings = <&kp LG(A)>;)
+ZMK_CONDITIONAL_LAYER(sel_all, WIN MAC, <&sel_all_win &sel_all_mac>)
+
 
 // f + j = caps word
 ZMK_COMBO(caps_word, &caps_word, LM1 RM1, ALL, 25)
