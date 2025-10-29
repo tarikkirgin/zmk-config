@@ -51,8 +51,8 @@ ZMK_MOD_MORPH(slash_both,
     mods = <(MOD_LSFT|MOD_RSFT)>;
 )
 
-ZMK_MACRO(win_mode, bindings = <&tog WIN &uc UC_SET_WIN_ALT>)
-ZMK_MACRO(mac_mode, bindings = <&tog MAC &uc UC_SET_MACOS>)
+ZMK_MACRO(win_mode, bindings = <&tog WIN &uc UC_SET_WIN_ALT>;)
+ZMK_MACRO(mac_mode, bindings = <&tog MAC &uc UC_SET_MACOS>;)
 
 ZMK_MACRO(del_word_win,
     bindings = <&kp LC(BSPC)>;
