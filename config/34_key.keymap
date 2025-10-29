@@ -238,7 +238,7 @@ ZMK_CONDITIONAL_LAYER(kbd_layer, SYM FUN, KBD)
         };
 
         keyboard_layer {
-            bindinds = <
+            bindings = <
             //                      ╭──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────╮
             //                      │          │          │  BT 4    │          │   │          │ OUT BLE  │ OUT USB  │          │
                                        _          _         &bt BT 4    _              _      &out OUT_BLE &out OUT_USB _       
