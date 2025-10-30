@@ -44,27 +44,6 @@ ZMK_MOD_MORPH(slash_both, bindings = <&kp SLASH>, <&kp BACKSLASH>; mods = <(MOD_
 ZMK_MACRO(win_mode, bindings = <&tog WIN &uc UC_SET_WIN_ALT>;)
 ZMK_MACRO(mac_mode, bindings = <&tog MAC &uc UC_SET_MACOS>;)
 
-#define DEL_WORD &kp LC(BSPC)
-#define DEL_WORD_M &kp LA(BSPC)
-
-#define SEL_ALL &kp LC(A)
-#define SEL_ALL_M &kp LG(A)
-
-#define UNDO &kp LC(Z)
-#define UNDO_M &kp LG(Z)
-
-#define REDO &kp LC(LS(Z))
-#define REDO_M &kp LG(LS(Z))
-
-#define CUT &kp LC(X)
-#define CUT_M &kp LG(X)
-
-#define COPY &kp LC(C)
-#define COPY_M &kp LG(C)
-
-#define PASTE &kp LC(V)
-#define PASTE_M &kp LG(V)
-
 ZMK_CONDITIONAL_LAYER(nav_mac_layer, MAC NAV, NAV_MAC)
 
 // f + j = caps word
@@ -127,16 +106,16 @@ ZMK_CONDITIONAL_LAYER(kbd_layer, SYM FUN, KBD)
             bindings = <
             //                      ╭──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────╮
             //                      │          │<prev win>│<next win>│  REDO    │   │  HOME    │ PG DOWN  │  PG UP   │  END     │
-                                       _       &kp LS(TAB)   &swap      _             &kp HOME  &kp PG_DOWN &kp PG_UP  &kp END      
+                                       _       &kp LS(TAB)   &swap    &kp LC(Z)       &kp HOME  &kp PG_DOWN &kp PG_UP  &kp END      
             //╭──────────┬──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┬──────────╮
             //│SHIFT+TAB │          │          │          │          │  UNDO    │   │  LEFT    │  DOWN       UP      │  RIGHT   │          │  TAB     │
-               &kp LS(TAB)  _          _          _          _          &UNDO         &kp LEFT   &kp DOWN    &kp UP   &kp RIGHT    _          &kp TAB   
+               &kp LS(TAB)  _          _          _          _      &kp LC(LS(Z))     &kp LEFT   &kp DOWN    &kp UP   &kp RIGHT    _          &kp TAB   
             //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
             //           │          │SELECT ALL│  CUT     │  COPY    │  PASTE   │   │ PRNTSCRN │  DELETE  │  INSERT  │  MB4     │  MB5     │
-                            _         &SEL_ALL    &CUT       &COPY      &PASTE       &kp PSCRN    &kp DEL    &kp INS   &mkp MB4   &mkp MB5
+                            _         &kp LC(A)  &kp LC(X)  &kp LC(C)  &kp LC(V)     &kp PSCRN    &kp DEL    &kp INS   &mkp MB4   &mkp MB5
             //           ╰──────────┴──────────┴──────────█▀▀▀▀▀▀▀▀▀▀█──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
             //                                            ▌          ▐          │   │          │ DEL WORD │
-                                                             _          _              _        &DEL_WORD
+                                                             _          _              _       &kp LC(BSPC)
             //                                            ▙▄▄▄▄▄▄▄▄▄▄▟──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -145,16 +124,16 @@ ZMK_CONDITIONAL_LAYER(kbd_layer, SYM FUN, KBD)
             bindings = <
             //                      ╭──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────╮
             //                      │          │<prev win>│<next win>│  REDO    │   │  HOME    │ PG DOWN  │  PG UP   │  END     │
-                                       _          _          _         &REDO_M         _          _          _          _
+                                       _          _          _        &kp LG(Z)        _          _          _          _
             //╭──────────┬──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┬──────────╮
             //│SHIFT+TAB │          │          │          │          │  UNDO    │   │  LEFT    │  DOWN       UP      │  RIGHT   │          │  TAB     │
-                 _          _          _          _          _         &UNDO_M         _          _          _          _          _          _         
+                 _          _          _          _          _      &kp LG(LS(Z))      _          _          _          _          _          _         
             //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
             //           │          │SELECT ALL│  CUT     │  COPY    │  PASTE   │   │ PRNTSCRN │  DELETE  │  INSERT  │  MB4     │  MB5     │
-                            _        &SEL_ALL_M   &CUT_M    &COPY_M    &PASTE_M        _          _          _          _          _     
+                            _        &kp LG(A)  &kp LG(X)  &kp LG(C)  &kp LG(V)        _          _          _          _          _     
             //           ╰──────────┴──────────┴──────────█▀▀▀▀▀▀▀▀▀▀█──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
             //                                            ▌          ▐          │   │          │ DEL WORD │
-                                                             _          _              _       &DEL_WORD_M
+                                                             _          _              _       &kp LG(BSPC)
             //                                            ▙▄▄▄▄▄▄▄▄▄▄▟──────────╯   ╰──────────┴──────────╯
             >;
         };
