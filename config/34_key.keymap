@@ -127,7 +127,7 @@ ZMK_CONDITIONAL_LAYER(kbd_layer, SYM FUN, KBD)
             bindings = <
             //                      ╭──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────╮
             //                      │          │<prev win>│<next win>│  REDO    │   │  HOME    │ PG DOWN  │  PG UP   │  END     │
-                                       _       &kp LS(TAB)  &swapper    &REDO         &kp HOME  &kp PG_DOWN &kp PG_UP  &kp END      
+                                       _       &kp LS(TAB)   &swap      &REDO         &kp HOME  &kp PG_DOWN &kp PG_UP  &kp END      
             //╭──────────┬──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┬──────────╮
             //│SHIFT+TAB │          │          │          │          │  UNDO    │   │  LEFT    │  DOWN       UP      │  RIGHT   │          │  TAB     │
                &kp LS(TAB)  _          _          _          _          &UNDO         &kp LEFT   &kp DOWN    &kp UP   &kp RIGHT    _          &kp TAB   
