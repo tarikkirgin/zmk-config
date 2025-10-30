@@ -4,17 +4,16 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/pointing.h>
+
 #include "zmk-helpers/helper.h"
 #include "zmk-helpers/key-labels/34.h"
 
 #define WIN 0
 #define MAC 1
-#define NAV 2
-#define NAV_MAC 3
-#define SYM 4
-#define NUM 5
-#define FUN 6
-#define KBD 7
+#define SYM 2
+#define NUM 3
+#define FUN 4
+#define KBD 5
 
 #define L_HOME(k1,k2,k3,k4) &mt LGUI  k1  &mt LALT  k2  &mt LCTRL k3  &mt LSHFT k4
 #define R_HOME(k1,k2,k3,k4) &mt RSHFT k1  &mt RCTRL k2  &mt RALT  k3  &mt RGUI  k4
@@ -41,11 +40,6 @@ ZMK_MOD_MORPH(dot_excl, bindings = <&kp DOT>, <&kp EXCL>; mods = <(MOD_LSFT|MOD_
 ZMK_MOD_MORPH(comma_ques, bindings = <&kp COMMA>, <&kp QUESTION>; mods = <(MOD_LSFT|MOD_RSFT)>;)
 ZMK_MOD_MORPH(slash_both, bindings = <&kp SLASH>, <&kp BACKSLASH>; mods = <(MOD_LSFT|MOD_RSFT)>;)
 
-ZMK_MACRO(win_mode, bindings = <&tog WIN &uc UC_SET_WIN_ALT>;)
-ZMK_MACRO(mac_mode, bindings = <&tog MAC &uc UC_SET_MACOS>;)
-
-ZMK_CONDITIONAL_LAYER(nav_mac_layer, MAC NAV, NAV_MAC)
-
 // f + j = caps word
 ZMK_COMBO(caps_word, &caps_word, LM1 RM1, ALL, 25)
 
@@ -53,16 +47,6 @@ ZMK_COMBO(caps_word, &caps_word, LM1 RM1, ALL, 25)
 ZMK_CONDITIONAL_LAYER(kbd_layer, SYM FUN, KBD)
 
 / {
-    behaviors {
-        swap: swapper {
-            compatible = "zmk,behavior-tri-state";
-            label = "SWAPPER";
-            #binding-cells = <0>;
-            bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
-            ignored-key-positions = <LT1 LT2 RM0 RM1 RM2 RM3>;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
@@ -99,42 +83,6 @@ ZMK_CONDITIONAL_LAYER(kbd_layer, SYM FUN, KBD)
             //                                            │  SPACE   │  ESCAPE  │   │  ENTER   │BACKSPACE │
                                                           &lt NAV SPC &lt SYM ESC   &lt FUN ENTER &lt NUM BSPC
             //                                            ╰──────────┴──────────╯   ╰──────────┴──────────╯
-            >;
-        };
-
-        navigation_layer {
-            bindings = <
-            //                      ╭──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────╮
-            //                      │          │<prev win>│<next win>│  REDO    │   │  HOME    │ PG DOWN  │  PG UP   │  END     │
-                                       _       &kp LS(TAB)   &swap    &kp LC(Z)       &kp HOME  &kp PG_DOWN &kp PG_UP  &kp END      
-            //╭──────────┬──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┬──────────╮
-            //│SHIFT+TAB │          │          │          │          │  UNDO    │   │  LEFT    │  DOWN       UP      │  RIGHT   │          │  TAB     │
-               &kp LS(TAB)  _          _          _          _      &kp LC(LS(Z))     &kp LEFT   &kp DOWN    &kp UP   &kp RIGHT    _          &kp TAB   
-            //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
-            //           │          │SELECT ALL│  CUT     │  COPY    │  PASTE   │   │ PRNTSCRN │  DELETE  │  INSERT  │  MB4     │  MB5     │
-                            _         &kp LC(A)  &kp LC(X)  &kp LC(C)  &kp LC(V)     &kp PSCRN    &kp DEL    &kp INS   &mkp MB4   &mkp MB5
-            //           ╰──────────┴──────────┴──────────█▀▀▀▀▀▀▀▀▀▀█──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-            //                                            ▌          ▐          │   │          │ DEL WORD │
-                                                             _          _              _       &kp LC(BSPC)
-            //                                            ▙▄▄▄▄▄▄▄▄▄▄▟──────────╯   ╰──────────┴──────────╯
-            >;
-        };
-
-        navigation_mac_layer {
-            bindings = <
-            //                      ╭──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────╮
-            //                      │          │<prev win>│<next win>│  REDO    │   │  HOME    │ PG DOWN  │  PG UP   │  END     │
-                                       _          _          _        &kp LG(Z)        _          _          _          _
-            //╭──────────┬──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┬──────────╮
-            //│SHIFT+TAB │          │          │          │          │  UNDO    │   │  LEFT    │  DOWN       UP      │  RIGHT   │          │  TAB     │
-                 _          _          _          _          _      &kp LG(LS(Z))      _          _          _          _          _          _         
-            //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
-            //           │          │SELECT ALL│  CUT     │  COPY    │  PASTE   │   │ PRNTSCRN │  DELETE  │  INSERT  │  MB4     │  MB5     │
-                            _        &kp LG(A)  &kp LG(X)  &kp LG(C)  &kp LG(V)        _          _          _          _          _     
-            //           ╰──────────┴──────────┴──────────█▀▀▀▀▀▀▀▀▀▀█──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-            //                                            ▌          ▐          │   │          │ DEL WORD │
-                                                             _          _              _       &kp LG(BSPC)
-            //                                            ▙▄▄▄▄▄▄▄▄▄▄▟──────────╯   ╰──────────┴──────────╯
             >;
         };
 
