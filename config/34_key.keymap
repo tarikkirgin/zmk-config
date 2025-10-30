@@ -10,15 +10,16 @@
 #define WIN 0
 #define MAC 1
 #define NAV 2
-#define SYM 3
-#define NUM 4
-#define FUN 5
-#define KBD 6
+#define NAV_MAC 3
+#define SYM 4
+#define NUM 5
+#define FUN 6
+#define KBD 7
 
-#define W_HM_L(k1,k2,k3,k4) &mt LGUI  k1  &mt LALT  k2  &mt LCTRL k3  &mt LSHFT k4
-#define W_HM_R(k1,k2,k3,k4) &mt RSHFT k1  &mt RCTRL k2  &mt RALT  k3  &mt RGUI  k4
-#define M_HM_L(k1,k2,k3,k4) &mt LCTRL k1  &mt LALT  k2  &mt LGUI  k3  &mt LSHFT k4
-#define M_HM_R(k1,k2,k3,k4) &mt RSHFT k1  &mt RGUI  k2  &mt RALT  k3  &mt RCTRL k4
+#define L_HOME(k1,k2,k3,k4) &mt LGUI  k1  &mt LALT  k2  &mt LCTRL k3  &mt LSHFT k4
+#define R_HOME(k1,k2,k3,k4) &mt RSHFT k1  &mt RCTRL k2  &mt RALT  k3  &mt RGUI  k4
+#define L_HOME_m(k1,k2,k3,k4) &mt LCTRL k1  &mt LALT  k2  &mt LGUI  k3  &mt LSHFT k4
+#define R_HOME_m(k1,k2,k3,k4) &mt RSHFT k1  &mt RGUI  k2  &mt RALT  k3  &mt RCTRL k4
 
 #define _ &trans
 #define GBP UC_CURR_POUND
@@ -36,45 +37,33 @@
     continue-list = <UNDERSCORE MINUS BSPC DEL N1 N2 N3 N4 N5 N6 N7 N8 N9 N0>;
 };
 
-ZMK_MOD_MORPH(dot_excl,
-    bindings = <&kp DOT>, <&kp EXCL>;
-    mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-
-ZMK_MOD_MORPH(comma_ques,
-    bindings = <&kp COMMA>, <&kp QUESTION>;
-    mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-
-ZMK_MOD_MORPH(slash_both,
-    bindings = <&kp SLASH>, <&kp BACKSLASH>;
-    mods = <(MOD_LSFT|MOD_RSFT)>;
-)
+ZMK_MOD_MORPH(dot_excl, bindings = <&kp DOT>, <&kp EXCL>; mods = <(MOD_LSFT|MOD_RSFT)>;)
+ZMK_MOD_MORPH(comma_ques, bindings = <&kp COMMA>, <&kp QUESTION>; mods = <(MOD_LSFT|MOD_RSFT)>;)
+ZMK_MOD_MORPH(slash_both, bindings = <&kp SLASH>, <&kp BACKSLASH>; mods = <(MOD_LSFT|MOD_RSFT)>;)
 
 ZMK_MACRO(win_mode, bindings = <&tog WIN &uc UC_SET_WIN_ALT>;)
 ZMK_MACRO(mac_mode, bindings = <&tog MAC &uc UC_SET_MACOS>;)
 
-ZMK_MACRO(del_word_win, bindings = <&kp LC(BSPC)>;)
-ZMK_MACRO(del_word_mac, bindings = <&kp LA(BSPC)>;)
+ZMK_MACRO(del_word, bindings = <&kp LC(BSPC)>;)
+ZMK_MACRO(del_word_m, bindings = <&kp LA(BSPC)>;)
 
-ZMK_CONDITIONAL_LAYER(del_word, WIN MAC, <&del_word_win &del_word_mac>)
+ZMK_MACRO(sel_all, bindings = <&kp LC(A)>;)
+ZMK_MACRO(sel_all_m, bindings = <&kp LG(A)>;)
 
-ZMK_MACRO(cut_win, bindings = <&kp LC(X)>;)
-ZMK_MACRO(cut_mac, bindings = <&kp LG(X)>;)
-ZMK_CONDITIONAL_LAYER(cut, WIN MAC, <&cut_win &cut_mac>)
+ZMK_MACRO(undo, bindings = <&kp LC(Z)>;)
+ZMK_MACRO(undo_m, bindings = <&kp LG(Z)>;)
 
-ZMK_MACRO(copy_win, bindings = <&kp LC(C)>;)
-ZMK_MACRO(copy_mac, bindings = <&kp LG(C)>;)
-ZMK_CONDITIONAL_LAYER(copy, WIN MAC, <&copy_win &copy_mac>)
+ZMK_MACRO(redo, bindings = <&kp LC(LS(Z))>;)
+ZMK_MACRO(redo_m, bindings = <&kp LG(LS(Z))>;)
 
-ZMK_MACRO(paste_win, bindings = <&kp LC(V)>;)
-ZMK_MACRO(paste_mac, bindings = <&kp LG(V)>;)
-ZMK_CONDITIONAL_LAYER(paste, WIN MAC, <&paste_win &paste_mac>)
+ZMK_MACRO(cut, bindings = <&kp LC(X)>;)
+ZMK_MACRO(cut_m, bindings = <&kp LG(X)>;)
+ZMK_MACRO(copy, bindings = <&kp LC(C)>;)
+ZMK_MACRO(copy_m, bindings = <&kp LG(C)>;)
+ZMK_MACRO(paste, bindings = <&kp LC(V)>;)
+ZMK_MACRO(paste_m, bindings = <&kp LG(V)>;)
 
-ZMK_MACRO(sel_all_win, bindings = <&kp LC(A)>;)
-ZMK_MACRO(sel_all_mac, bindings = <&kp LG(A)>;)
-ZMK_CONDITIONAL_LAYER(sel_all, WIN MAC, <&sel_all_win &sel_all_mac>)
-
+ZMK_CONDITIONAL_LAYER(nav_mac_layer, MAC NAV, NAV_MAC)
 
 // f + j = caps word
 ZMK_COMBO(caps_word, &caps_word, LM1 RM1, ALL, 25)
@@ -103,7 +92,7 @@ ZMK_CONDITIONAL_LAYER(kbd_layer, SYM FUN, KBD)
                                        &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O     
             //╭──────────┬──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┬──────────╮
             //│  Q       │  A       │  S       │  D       │  F       │  G       │   │  H       │  J       │  K       │  L       │  ; :     │  P       │
-                 &kp Q    W_HM_L(A,    S,         D,         F       )  &kp G          &kp H    W_HM_R(J,    K,         L       ,  SEMI    )  &kp P
+                 &kp Q    L_HOME(A  ,  S       ,  D       ,  F       )  &kp G          &kp H    R_HOME(J  ,  K       ,  L       ,  SEMI    )  &kp P
             //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
             //           │  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , !      │ . ?      │  / \     │
                             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M     &kp COMMA  &kp DOT   &kp SLASH
@@ -121,7 +110,7 @@ ZMK_CONDITIONAL_LAYER(kbd_layer, SYM FUN, KBD)
                                        &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O     
             //╭──────────┬──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┬──────────╮
             //│  Q       │  A       │  S       │  D       │  F       │  G       │   │  H       │  J       │  K       │  L       │  ; :     │  P       │
-                 &kp Q    M_HM_L(A,    S,         D,         F       )  &kp G          &kp H    M_HM_R (J,   K,         L       ,  SEMI    )  &kp P
+                 &kp Q    L_HOME_m(A,  S       ,  D       ,  F       )  &kp G          &kp H    R_HOME_m(J,  K       ,  L       ,  SEMI    )  &kp P
             //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
             //           │  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , !      │ . ?      │  / \     │
                             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &kp COMMA   &kp DOT   &kp SLASH
@@ -136,16 +125,34 @@ ZMK_CONDITIONAL_LAYER(kbd_layer, SYM FUN, KBD)
             bindings = <
             //                      ╭──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────╮
             //                      │          │<prev win>│<next win>│  REDO    │   │  HOME    │ PG DOWN  │  PG UP   │  END     │
-                                       _       &kp LS(TAB)  &swapper   &kp REDO       &kp HOME  &kp PG_DOWN &kp PG_UP  &kp END      
+                                       _       &kp LS(TAB)  &swapper    &redo         &kp HOME  &kp PG_DOWN &kp PG_UP  &kp END      
             //╭──────────┬──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┬──────────╮
             //│SHIFT+TAB │          │          │          │          │  UNDO    │   │  LEFT    │  DOWN       UP      │  RIGHT   │          │  TAB     │
-               &kp LS(TAB)  _          _          _          _         &kp UNDO       &kp LEFT   &kp DOWN    &kp UP   &kp RIGHT    _          &kp TAB   
+               &kp LS(TAB)  _          _          _          _          &undo         &kp LEFT   &kp DOWN    &kp UP   &kp RIGHT    _          &kp TAB   
             //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
             //           │          │SELECT ALL│  CUT     │  COPY    │  PASTE   │   │ PRNTSCRN │  DELETE  │  INSERT  │  MB4     │  MB5     │
                             _         &sel_all    &cut       &copy      &paste       &kp PSCRN    &kp DEL    &kp INS   &mkp MB4   &mkp MB5
             //           ╰──────────┴──────────┴──────────█▀▀▀▀▀▀▀▀▀▀█──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
             //                                            ▌          ▐          │   │          │ DEL WORD │
                                                              _          _              _        &del_word
+            //                                            ▙▄▄▄▄▄▄▄▄▄▄▟──────────╯   ╰──────────┴──────────╯
+            >;
+        };
+
+        navigation_mac_layer {
+            bindings = <
+            //                      ╭──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────╮
+            //                      │          │<prev win>│<next win>│  REDO    │   │  HOME    │ PG DOWN  │  PG UP   │  END     │
+                                       _          _          _         &redo_m         _          _          _          _
+            //╭──────────┬──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┬──────────╮
+            //│SHIFT+TAB │          │          │          │          │  UNDO    │   │  LEFT    │  DOWN       UP      │  RIGHT   │          │  TAB     │
+                 _          _          _          _          _         &undo_m         _          _          _          _          _          _         
+            //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
+            //           │          │SELECT ALL│  CUT     │  COPY    │  PASTE   │   │ PRNTSCRN │  DELETE  │  INSERT  │  MB4     │  MB5     │
+                            _        &sel_all_m   &cut_m    &copy_m    &paste_m        _          _          _          _          _     
+            //           ╰──────────┴──────────┴──────────█▀▀▀▀▀▀▀▀▀▀█──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
+            //                                            ▌          ▐          │   │          │ DEL WORD │
+                                                             _          _              _       &del_word_m
             //                                            ▙▄▄▄▄▄▄▄▄▄▄▟──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -228,7 +235,6 @@ ZMK_CONDITIONAL_LAYER(kbd_layer, SYM FUN, KBD)
 
 - hyper mod-tap?
 - maybe make home row mods on layers one shot
-- modify further to remove need for win and mac layers
 
             //                      ╭──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────╮
             //                      │          │          │          │          │   │          │          │          │          │
