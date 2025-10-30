@@ -33,7 +33,7 @@
                             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M     &kp COMMA  &kp DOT   &kp SLASH
             //           ╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
             //                                            │  SPACE   │  ESCAPE  │   │  ENTER   │BACKSPACE │
-                                                          &lt NAV SPC &lt SYM ESC   &lt FUN ENTER &lt NUM BSPC
+                                                          &lt SYM SPC &lt SYM ESC   &lt FUN ENTER &lt NUM BSPC
             //                                            ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
