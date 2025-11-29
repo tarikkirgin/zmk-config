@@ -101,7 +101,7 @@ ZMK_CONDITIONAL_LAYER(kbd_layer, SYM FUN, KBD)
                             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &comma_excl &dot_ques &slash_both
             //           ╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
             //                                            │  SPACE   │  ESCAPE  │   │  ENTER   │BACKSPACE │
-                                                          &lt NAV SPC &lt SYM ESC   &lt FUN ENTER &lt NUM BSPC
+                                                          &lt NAV SPC &lt SYM ENTER &lt FUN ESC &lt NUM BSPC
             //                                            ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -119,7 +119,7 @@ ZMK_CONDITIONAL_LAYER(kbd_layer, SYM FUN, KBD)
                             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &comma_excl &dot_ques &slash_both
             //           ╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
             //                                            │  SPACE   │  ESCAPE  │   │  ENTER   │BACKSPACE │
-                                                          &lt NAV SPC &lt SYM ESC  &lt FUN ENTER &lt NUM BSPC
+                                                          &lt NAV SPC &lt SYM ENTER &lt FUN ESC &lt NUM BSPC
             //                                            ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
