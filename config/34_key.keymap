@@ -163,14 +163,14 @@ ZMK_CONDITIONAL_LAYER(kbd_layer, SYM FUN, KBD)
         symbol_layer {
             bindings = <
             //                      ╭──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────╮
-            //                      │  @       │  {       │  }       │  ^       │   │  REPEAT  │  -       │  (       │  )       │
-                                      &kp AT     &kp LBRC   &kp RBRC  &kp CARET     &key_repeat  &kp MINUS  &kp LPAR   &kp RPAR
+            //                      │  @       │  {       │  }       │  ^       │   │  REPEAT  │  =       │  (       │  )       │
+                                       &kp AT    &kp LBRC   &kp RBRC   &kp CARET    &key_repeat  &kp EQUAL  &kp LPAR   &kp RPAR
             //╭──────────┬──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┬──────────╮
-            //│          │          │          │          │          │  &       │   │  #       │  =       │  _       │  "       │  '       │  `       │
-                 _          _          _          _          _         &kp AMPS       &kp HASH  &kp EQUAL  &kp UNDER   &kp DQT    &kp SQT   &kp GRAVE
+            //│          │          │          │          │          │  &       │   │  #       │  -       │  _       │  "       │  '       │  `       │
+                 _          _          _          _          _         &kp AMPS       &kp HASH   &kp MINUS  &kp UNDER   &kp DQT    &kp SQT   &kp GRAVE
             //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
             //           │          │  <       │  >       │  :       │  |       │   │  ~       │  ;       │  [       │  ]       │          │
-                            _          &kp LT     &kp GT   &kp COLON   &kp PIPE      &kp TILDE   &kp SEMI   &kp LBKT   &kp RBKT    _      
+                            _          &kp LT     &kp GT   &kp COLON   &kp PIPE       &kp TILDE  &kp SEMI   &kp LBKT   &kp RBKT    _      
             //           ╰──────────┴──────────┴──────────┤──────────█▀▀▀▀▀▀▀▀▀▀█   ├──────────┼──────────┼──────────┴──────────┴──────────╯
             //                                            │          ▌          ▐   │          │          │
                                                              _          _              _          _         
@@ -181,11 +181,11 @@ ZMK_CONDITIONAL_LAYER(kbd_layer, SYM FUN, KBD)
         number_layer {
             bindings = <
             //                      ╭──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────╮
-            //                      │    6     │    5     │    4     │          │   │  /       │  -       │  *       │  +       │
-                                       &kp N6     &kp N5     &kp N4     _            &kp SLASH  &kp MINUS  &kp ASTRK   &kp PLUS
+            //                      │    6     │    5     │    4     │          │   │  /       │  =       │  *       │  -       │
+                                       &kp N6     &kp N5     &kp N4     _            &kp SLASH  &kp EQUAL  &kp ASTRK  &kp MINUS
             //╭──────────┬──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┬──────────╮
-            //│          │    3     │    2     │    1     │    0     │          │   │  =       │          │          │          │          │  .       │
-                 _          &kp N3     &kp N2     &kp N1     &kp N0     _            &kp EQUAL    _          _          _          _         &kp DOT   
+            //│          │    3     │    2     │    1     │    0     │          │   │  +       │          │          │          │          │  .       │
+                 _          &kp N3     &kp N2     &kp N1     &kp N0     _            &kp PLUS    _          _          _          _         &kp DOT   
             //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
             //           │          │    9     │    8     │    7     │          │   │  $       │  £       │  %       │          │  ,       │
                             _          &kp N9     &kp N8     &kp N7     _            &kp DOLLAR  &uc GBP  &kp PERCENT   _        &kp COMMA
