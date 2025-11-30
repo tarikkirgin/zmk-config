@@ -6,7 +6,6 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 #include "zmk-helpers/helper.h"
-#include "zmk-helpers/key-labels/34.h"
 
 #define WIN 0
 #define MAC 1
@@ -71,7 +70,7 @@ ZMK_MACRO(mac_mode, bindings = <&tog MAC &uc UC_SET_MACOS>;)
 ZMK_CONDITIONAL_LAYER(nav_mac_layer, MAC NAV, NAV_M)
 
 // f + j = caps word
-ZMK_COMBO(caps_word, &caps_word, LM1 RM1)
+ZMK_COMBO(caps_word, &caps_word, 12 15)
 
 // symbol layer + function layer = keyboard_layer
 ZMK_CONDITIONAL_LAYER(kbd_layer, SYM FUN, KBD)
@@ -83,7 +82,7 @@ ZMK_CONDITIONAL_LAYER(kbd_layer, SYM FUN, KBD)
             label = "SWAPPER";
             #binding-cells = <0>;
             bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
-            ignored-key-positions = <LT1 LT2 RM0 RM1 RM2 RM3>;
+            ignored-key-positions = <1 2 15 16 17 18>;
         };
     };
 
