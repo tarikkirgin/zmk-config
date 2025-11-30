@@ -17,10 +17,12 @@
 #define FUN 6
 #define KBD 7
 
-#define L_HOME(k1,k2,k3,k4) &mt LGUI  k1  &mt LALT  k2  &mt LCTRL k3  &mt LSHFT k4
-#define R_HOME(k1,k2,k3,k4) &mt RSHFT k1  &mt RCTRL k2  &mt RALT  k3  &mt RGUI  k4
-#define L_HOME_M(k1,k2,k3,k4) &mt LCTRL k1  &mt LALT  k2  &mt LGUI  k3  &mt LSHFT k4
-#define R_HOME_M(k1,k2,k3,k4) &mt RSHFT k1  &mt RGUI  k2  &mt RALT  k3  &mt RCTRL k4
+#define RHYP RS(RA(RC(RGUI)))
+
+#define L_HOME(k0,k1,k2,k3,k4) &mt RHYP  k0  &mt LGUI  k1  &mt LALT k2  &mt LCTRL k3  &mt LSHFT k4
+#define R_HOME(k0,k1,k2,k3,k4) &mt RSHFT k0  &mt RCTRL k1  &mt RALT k2  &mt RGUI  k3  &mt RHYP  k4
+#define L_HOME_M(k0,k1,k2,k3,k4) &mt RHYP  k0  &mt LCTRL k1  &mt LALT  k2  &mt LGUI  k3  &mt LSHFT k4
+#define R_HOME_M(k0,k1,k2,k3,k4) &mt RSHFT k0  &mt RGUI  k1  &mt RALT  k2  &mt RCTRL k3  &mt RHYP  k4
 
 #define DEL_WORD &kp LC(BSPC)
 #define DEL_WORD_M &kp LA(BSPC)
@@ -95,7 +97,7 @@ ZMK_CONDITIONAL_LAYER(kbd_layer, SYM FUN, KBD)
                                        &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O     
             //╭──────────┬──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┬──────────╮
             //│  Q       │  A       │  S       │  D       │  F       │  G       │   │  H       │  J       │  K       │  L       │  ; :     │  P       │
-                 &kp Q    L_HOME(A  ,  S       ,  D       ,  F       )  &kp G          &kp H    R_HOME(J  ,  K       ,  L       ,  SEMI    )  &kp P
+                 L_HOME(Q,  A       ,  S       ,  D       ,  F       )  &kp G          &kp H      R_HOME(J,  K       ,  L       ,  SEMI    ,  P       )
             //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
             //           │  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , !      │ . ?      │  / \     │
                             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &comma_excl &dot_ques &slash_both
@@ -113,7 +115,7 @@ ZMK_CONDITIONAL_LAYER(kbd_layer, SYM FUN, KBD)
                                        &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O     
             //╭──────────┬──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┬──────────╮
             //│  Q       │  A       │  S       │  D       │  F       │  G       │   │  H       │  J       │  K       │  L       │  ; :     │  P       │
-                 &kp Q    L_HOME_M(A,  S       ,  D       ,  F       )  &kp G          &kp H    R_HOME_M(J,  K       ,  L       ,  SEMI    )  &kp P
+               L_HOME_M(Q,  A       ,  S       ,  D       ,  F       )  &kp G          &kp H    R_HOME_M(J,  K       ,  L       ,  SEMI    ,  P       )
             //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
             //           │  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , !      │ . ?      │  / \     │
                             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &comma_excl &dot_ques &slash_both
