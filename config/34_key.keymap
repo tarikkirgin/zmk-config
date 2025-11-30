@@ -71,7 +71,7 @@ ZMK_MACRO(mac_mode, bindings = <&tog MAC &uc UC_SET_MACOS>;)
 ZMK_CONDITIONAL_LAYER(nav_mac_layer, MAC NAV, NAV_M)
 
 // f + j = caps word
-ZMK_COMBO(caps_word, &caps_word, LM1 RM1, ALL, 25)
+ZMK_COMBO(caps_word, &caps_word, LM1 RM1)
 
 // symbol layer + function layer = keyboard_layer
 ZMK_CONDITIONAL_LAYER(kbd_layer, SYM FUN, KBD)
