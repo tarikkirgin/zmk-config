@@ -157,8 +157,8 @@ ZMK_TRI_STATE(alt_tab_m, bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>; ignored-k
         symbol_layer {
             bindings = <
             //                      ╭──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────╮
-            //                      │  @       │  {       │  }       │          │   │  ^       │  =       │  (       │  )       │
-                                       &kp AT    &kp LBRC   &kp RBRC    _             &kp CARET  &kp EQUAL  &kp LPAR   &kp RPAR
+            //                      │  @       │  {       │  }       │          │   │  REPEAT  │  =       │  (       │  )       │
+                                       &kp AT    &kp LBRC   &kp RBRC    _            &key_repeat  &kp EQUAL  &kp LPAR   &kp RPAR
             //╭──────────┬──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┬──────────╮
             //│          │          │          │          │          │  &       │   │  #       │  -       │  _       │  '       │  "       │  `       │
                  _          _          _          _          _         &kp AMPS       &kp HASH   &kp MINUS  &kp UNDER   &kp SQT    &kp DQT   &kp GRAVE
