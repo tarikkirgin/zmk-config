@@ -75,23 +75,10 @@ ZMK_COMBO(caps_word, &caps_word, 12 15)
 // symbol layer + function layer = keyboard_layer
 ZMK_CONDITIONAL_LAYER(kbd_layer, SYM FUN, KBD)
 
+ZMK_TRI_STATE(alt_tab, bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>; ignored-key-positions = <1 2 15 16 17 18>;)
+ZMK_TRI_STATE(alt_tab_m, bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>; ignored-key-positions = <1 2 15 16 17 18>;)
+
 / {
-    behaviors {
-        ALT_TAB: swapper {
-            compatible = "zmk,behavior-tri-state";
-            #binding-cells = <0>;
-            bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
-            ignored-key-positions = <1 2 15 16 17 18>;
-        };
-
-        ALT_TAB_M: swapper {
-            compatible = "zmk,behavior-tri-state";
-            #binding-cells = <0>;
-            bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>;
-            ignored-key-positions = <1 2 15 16 17 18>;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
@@ -135,7 +122,7 @@ ZMK_CONDITIONAL_LAYER(kbd_layer, SYM FUN, KBD)
             bindings = <
             //                      ╭──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────╮
             //                      │          │<prev win>│<next win>│  REDO    │   │  HOME    │ PG DOWN  │  PG UP   │  END     │
-                                       _       &kp LS(TAB)  &ALT_TAB    REDO          &kp HOME   &kp PG_DN  &kp PG_UP  &kp END      
+                                       _       &kp LS(TAB)  &alt_tab    REDO          &kp HOME   &kp PG_DN  &kp PG_UP  &kp END      
             //╭──────────┬──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┬──────────╮
             //│SHIFT+TAB │          │          │          │          │  UNDO    │   │  LEFT    │  DOWN    │  UP      │  RIGHT   │          │  TAB     │
                &kp LS(TAB)  _          _          _          _          UNDO          &kp LEFT   &kp DOWN    &kp UP   &kp RIGHT    _          &kp TAB   
@@ -153,7 +140,7 @@ ZMK_CONDITIONAL_LAYER(kbd_layer, SYM FUN, KBD)
             bindings = <
             //                      ╭──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────╮
             //                      │          │<prev win>│<next win>│  REDO    │   │  HOME    │ PG DOWN  │  PG UP   │  END     │
-                                       _          _        &ALT_TAB_M   REDO_M         _          _          _          _
+                                       _          _        &alt_tab_m   REDO_M         _          _          _          _
             //╭──────────┬──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┬──────────╮
             //│SHIFT+TAB │          │          │          │          │  UNDO    │   │  LEFT    │  DOWN    │  UP      │  RIGHT   │          │  TAB     │
                  _          _          _          _          _          UNDO_M         _          _          _          _          _          _         
