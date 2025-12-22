@@ -134,8 +134,8 @@ ZMK_CONDITIONAL_LAYER(kbd_layer, SYM FUN, KBD)
             //│SHIFT+TAB │          │          │          │          │  UNDO    │   │  LEFT    │  DOWN    │  UP      │  RIGHT   │          │  TAB     │
                &kp LS(TAB)  _          _          _          _          UNDO          &kp LEFT   &kp DOWN    &kp UP   &kp RIGHT    _          &kp TAB   
             //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
-            //           │          │SELECT ALL│  CUT     │  COPY    │  PASTE   │   │ PRNTSCRN │  DELETE  │  INSERT  │  MB4     │  MB5     │
-                            _         SEL_ALL     CUT        COPY       PASTE        &kp PSCRN    &kp DEL    &kp INS   &mkp MB4   &mkp MB5
+            //           │SELECT ALL│  CUT     │  COPY    │  PASTE   │          │   │ PRNTSCRN │  DELETE  │  INSERT  │  MB4     │  MB5     │
+                           SEL_ALL     CUT        COPY       PASTE      _            &kp PSCRN    &kp DEL    &kp INS   &mkp MB4   &mkp MB5
             //           ╰──────────┴──────────┴──────────█▀▀▀▀▀▀▀▀▀▀█──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
             //                                            ▌          ▐          │   │          │ DEL WORD │
                                                              _          _              _         DEL_WORD
@@ -152,8 +152,8 @@ ZMK_CONDITIONAL_LAYER(kbd_layer, SYM FUN, KBD)
             //│SHIFT+TAB │          │          │          │          │  UNDO    │   │  LEFT    │  DOWN    │  UP      │  RIGHT   │          │  TAB     │
                  _          _          _          _          _          UNDO_M         _          _          _          _          _          _         
             //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
-            //           │          │SELECT ALL│  CUT     │  COPY    │  PASTE   │   │ PRNTSCRN │  DELETE  │  INSERT  │  MB4     │  MB5     │
-                            _         SEL_ALL_M   CUT_M      COPY_M     PASTE_M        _          _          _          _          _     
+            //           │SELECT ALL│  CUT     │  COPY    │  PASTE   │          │   │ PRNTSCRN │  DELETE  │  INSERT  │  MB4     │  MB5     │
+                           SEL_ALL_M   CUT_M      COPY_M     PASTE_M    _              _          _          _          _          _     
             //           ╰──────────┴──────────┴──────────█▀▀▀▀▀▀▀▀▀▀█──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
             //                                            ▌          ▐          │   │          │ DEL WORD │
                                                              _          _              _        DEL_WORD_M
