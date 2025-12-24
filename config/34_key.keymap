@@ -124,8 +124,8 @@ ZMK_TRI_STATE(alt_tab_m, bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>; ignored-k
             //                      │          │<prev win>│<next win>│  REDO    │   │  HOME    │ PG DOWN  │  PG UP   │  END     │
                                        _       &kp LS(TAB)  &alt_tab    REDO          &kp HOME   &kp PG_DN  &kp PG_UP  &kp END      
             //╭──────────┬──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┬──────────╮
-            //│SHIFT+TAB │          │          │          │          │  UNDO    │   │  LEFT    │  DOWN    │  UP      │  RIGHT   │          │  TAB     │
-               &kp LS(TAB)  _          _          _          _          UNDO          &kp LEFT   &kp DOWN    &kp UP   &kp RIGHT    _          &kp TAB   
+            //│          │          │          │          │          │  UNDO    │   │  LEFT    │  DOWN    │  UP      │  RIGHT   │  TAB     │SHIFT+TAB │
+                 _          _          _          _          _          UNDO          &kp LEFT   &kp DOWN    &kp UP   &kp RIGHT    &kp TAB  &kp LS(TAB) 
             //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
             //           │SELECT ALL│  CUT     │  COPY    │  PASTE   │          │   │ PRNTSCRN │  DELETE  │  INSERT  │  MB4     │  MB5     │
                            SEL_ALL     CUT        COPY       PASTE      _            &kp PSCRN    &kp DEL    &kp INS   &mkp MB4   &mkp MB5
@@ -142,8 +142,8 @@ ZMK_TRI_STATE(alt_tab_m, bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>; ignored-k
             //                      │          │<prev win>│<next win>│  REDO    │   │  HOME    │ PG DOWN  │  PG UP   │  END     │
                                        _          _        &alt_tab_m   REDO_M         _          _          _          _
             //╭──────────┬──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┬──────────╮
-            //│SHIFT+TAB │          │          │          │          │  UNDO    │   │  LEFT    │  DOWN    │  UP      │  RIGHT   │          │  TAB     │
-                 _          _          _          _          _          UNDO_M         _          _          _          _          _          _         
+            //│          │          │          │          │          │  UNDO    │   │  LEFT    │  DOWN    │  UP      │  RIGHT   │  TAB     │SHIFT+TAB │
+                 _          _          _          _          _          UNDO_M         _          _          _          _          _          _          
             //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
             //           │SELECT ALL│  CUT     │  COPY    │  PASTE   │          │   │ PRNTSCRN │  DELETE  │  INSERT  │  MB4     │  MB5     │
                            SEL_ALL_M   CUT_M      COPY_M     PASTE_M    _              _          _          _          _          _     
