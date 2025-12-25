@@ -214,8 +214,8 @@ ZMK_TRI_STATE(alt_tab_m, bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>; ignored-k
             //                      │          │          │  BT 4    │          │   │          │ OUT BLE  │ OUT USB  │          │
                                        _          _       &bt BT_SEL 4  _              _      &out OUT_BLE &out OUT_USB _       
             //╭──────────┬──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┬──────────╮
-            //│          │  BT 3    │  BT 2    │  BT 1    │  BT 0    │          │   │          │ TOG WIN  │ TOG MAC  │          │          │          │   
-                 _   &bt BT_SEL 3  &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0  _           _        &win_mode  &mac_mode    _          _          _
+            //│          │  BT 3    │  BT 2    │  BT 1    │  BT 0    │          │   │          │ TOG MAC  │ TOG WIN  │          │          │          │   
+                 _   &bt BT_SEL 3  &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0  _           _        &mac_mode  &win_mode    _          _          _
             //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
             //           │  BT CLR  │          │          │          │          │   │          │          │          │          │          │
                           &bt BT_CLR   _          _          _          _              _          _          _          _          _
