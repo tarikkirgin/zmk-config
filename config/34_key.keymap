@@ -92,13 +92,13 @@ ZMK_MACRO(mac_mode, bindings = <&tog MAC &uc UC_SET_MACOS>;)
 ZMK_CONDITIONAL_LAYER(nav_mac_layer, MAC NAV, NAV_M)
 
 // f + j = caps word
-ZMK_COMBO(caps_word, &caps_word, 12 15)
+ZMK_COMBO(caps_word, &caps_word, LM1 RM1)
 
 // symbol layer + function layer = keyboard_layer
 ZMK_CONDITIONAL_LAYER(kbd_layer, SYM FUN, KBD)
 
-ZMK_TRI_STATE(alt_tab, bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>; ignored-key-positions = <1 2 15 16 17 18>;)
-ZMK_TRI_STATE(alt_tab_m, bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>; ignored-key-positions = <1 2 15 16 17 18>;)
+ZMK_TRI_STATE(alt_tab, bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>; ignored-key-positions = <LT2 LT1 RM0 RM1 RM2 RM3>;)
+ZMK_TRI_STATE(alt_tab_m, bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>; ignored-key-positions = <LT2 LT1 RM0 RM1 RM2 RM3>;)
 
 / {
     keymap {
