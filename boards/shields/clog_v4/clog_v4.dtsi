@@ -29,6 +29,7 @@
         compatible = "zmk,kscan-gpio-matrix";
         label = "KSCAN";
         diode-direction = "row2col";
+        wakeup-source;
 
         row-gpios
             = <&xiao_d 10 GPIO_ACTIVE_HIGH>
