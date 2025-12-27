@@ -81,15 +81,21 @@ ZMK_MOD_MORPH(dot_ques, bindings = <&kp DOT>, <&kp EXCL>; mods = <(MOD_LSFT|MOD_
 ZMK_MOD_MORPH(comma_excl, bindings = <&kp COMMA>, <&kp QUESTION>; mods = <(MOD_LSFT|MOD_RSFT)>;)
 ZMK_MOD_MORPH(slash_both, bindings = <&kp SLASH>, <&kp BACKSLASH>; mods = <(MOD_LSFT|MOD_RSFT)>;)
 
-ZMK_BEHAVIOR(tog_on, layer_toggle,
-    toggle-mode = "on";
-    #binding-cells = <1>;
-)
+/ {
+    behaviors {
+        tog_on: toggle_layer_on_only {
+            compatible = "zmk,behavior-toggle-layer";
+            #binding-cells = <1>;
+            toggle-mode = "on";
+        };
 
-ZMK_BEHAVIOR(tog_off, layer_toggle,
-    toggle-mode = "off";
-    #binding-cells = <1>;
-)
+        tog_off: toggle_layer_off_only {
+            compatible = "zmk,behavior-toggle-layer";
+            #binding-cells = <1>;
+            toggle-mode = "off";
+        };
+    };
+};
 
 ZMK_MACRO(mac_on, bindings = <&tog_on MAC &uc UC_SET_MACOS>;)
 ZMK_MACRO(mac_off, bindings = <&tog_off MAC &uc UC_SET_WIN_ALT>;)
