@@ -12,7 +12,7 @@
 #define KEYS_R RT0 RT1 RT2 RT3 RM0 RM1 RM2 RM3 RM4 RM5 RB0 RB1 RB2 RB3 RB4
 #define THUMBS LH1 LH0 RH0 RH1
 
-#define WIN 0
+#define BAS 0
 #define MAC 1
 #define NAV 2
 #define NAV_M 3
@@ -86,8 +86,18 @@ ZMK_MOD_MORPH(dot_ques, bindings = <&kp DOT>, <&kp EXCL>; mods = <(MOD_LSFT|MOD_
 ZMK_MOD_MORPH(comma_excl, bindings = <&kp COMMA>, <&kp QUESTION>; mods = <(MOD_LSFT|MOD_RSFT)>;)
 ZMK_MOD_MORPH(slash_both, bindings = <&kp SLASH>, <&kp BACKSLASH>; mods = <(MOD_LSFT|MOD_RSFT)>;)
 
-ZMK_MACRO(win_mode, bindings = <&tog WIN &uc UC_SET_WIN_ALT>;)
-ZMK_MACRO(mac_mode, bindings = <&tog MAC &uc UC_SET_MACOS>;)
+ZMK_BEHAVIOR(tog_on, layer_toggle,
+    toggle-mode = "on";
+    locking;
+)
+
+ZMK_BEHAVIOR(tog_off, layer_toggle,
+    toggle-mode = "off";
+    locking;
+)
+
+ZMK_MACRO(mac_on, bindings = <&tog_on MAC &uc UC_SET_MACOS>;)
+ZMK_MACRO(mac_off, bindings = <&tog_off MAC &uc UC_SET_WIN_ALT>;)
 
 ZMK_CONDITIONAL_LAYER(nav_mac_layer, MAC NAV, NAV_M)
 
@@ -104,7 +114,7 @@ ZMK_TRI_STATE(alt_tab_m, bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>; ignored-k
     keymap {
         compatible = "zmk,keymap";
 
-        windows_layer {
+        base_layer {
             bindings = <
             //                      ╭──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────╮
             //                      │  W       │  E       │  R       │  T       │   │  Y       │  U       │  I       │  O       │
@@ -151,19 +161,10 @@ ZMK_TRI_STATE(alt_tab_m, bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>; ignored-k
 
         navigation_mac_layer {
             bindings = <
-            //                      ╭──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────╮
-            //                      │          │<prev win>│<next win>│  REDO    │   │  HOME    │ PG DOWN  │  PG UP   │  END     │
-                                       _          _        &alt_tab_m   REDO_M         _          _          _          _
-            //╭──────────┬──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┬──────────╮
-            //│          │          │          │          │          │  UNDO    │   │  LEFT    │  DOWN    │  UP      │  RIGHT   │  TAB     │SHIFT+TAB │
-                 _          _          _          _          _          UNDO_M         _          _          _          _          _          _          
-            //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
-            //           │SELECT ALL│  CUT     │  COPY    │  PASTE   │          │   │ PRNTSCRN │  DELETE  │  INSERT  │  MB4     │  MB5     │
-                          SEL_ALL_M    CUT_M      COPY_M     PASTE_M    _              _          _          _          _          _     
-            //           ╰──────────┴──────────┴──────────█▀▀▀▀▀▀▀▀▀▀█──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-            //                                            ▌          ▐          │   │  REPEAT  │ DEL WORD │
-                                                             _          _              _        DEL_WORD_M
-            //                                            ▙▄▄▄▄▄▄▄▄▄▄▟──────────╯   ╰──────────┴──────────╯
+                _ _ &alt_tab_m REDO_M  _ _ _ _
+                _ _ _ _ _ UNDO_M  _ _ _ _ _ _
+                SEL_ALL_M CUT_M COPY_M PASTE_M _  _ _ _ _ _
+                _ _  _ DEL_WORD_M
             >;
         };
 
@@ -227,8 +228,8 @@ ZMK_TRI_STATE(alt_tab_m, bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>; ignored-k
             //                      │          │          │  BT 4    │          │   │          │ OUT BLE  │ OUT USB  │          │
                                        _          _       &bt BT_SEL 4  _              _      &out OUT_BLE &out OUT_USB _       
             //╭──────────┬──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┬──────────╮
-            //│          │  BT 3    │  BT 2    │  BT 1    │  BT 0    │          │   │          │ TOG MAC  │ TOG WIN  │          │          │          │   
-                 _   &bt BT_SEL 3  &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0  _           _        &mac_mode  &win_mode    _          _          _
+            //│          │  BT 3    │  BT 2    │  BT 1    │  BT 0    │          │   │          │ MAC ON   │ MAC OFF  │          │          │          │   
+                 _   &bt BT_SEL 3  &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0  _           _         &mac_on    &mac_off    _          _          _
             //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
             //           │  BT CLR  │          │          │          │          │   │          │          │          │          │          │
                           &bt BT_CLR   _          _          _          _              _          _          _          _          _
