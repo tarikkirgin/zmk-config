@@ -127,7 +127,7 @@ ZMK_TRI_STATE(alt_tab_m, bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>; ignored-k
             //           │  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , !      │ . ?      │  / \     │
                             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &comma_excl &dot_ques &slash_both
             //           ╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-            //                                            │  SPACE   │  ESCAPE  │   │  ENTER   │BACKSPACE │
+            //                                            │  SPACE   │  ENTER   │   │  ESCAPE  │BACKSPACE │
                                                           &lt NAV SPC &lt SYM ENTER &lt FUN ESC &lt NUM BSPC
             //                                            ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
