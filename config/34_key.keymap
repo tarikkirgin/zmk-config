@@ -65,7 +65,6 @@ ZMK_HOLD_TAP(hl,
     bindings = <&kp>, <&kp>;
     hold-trigger-key-positions = <KEYS_R KEYS_THUMB>;
     hold-trigger-on-release;
-    hold-while-undecided;
 )
 
 ZMK_HOLD_TAP(hr,
@@ -76,7 +75,6 @@ ZMK_HOLD_TAP(hr,
     bindings = <&kp>, <&kp>;
     hold-trigger-key-positions = <KEYS_L KEYS_THUMB>;
     hold-trigger-on-release;
-    hold-while-undecided;
 )
 
 ZMK_MOD_MORPH(dot_excl, bindings = <&kp DOT>, <&kp EXCL>; mods = <(MOD_LSFT|MOD_RSFT)>;)
