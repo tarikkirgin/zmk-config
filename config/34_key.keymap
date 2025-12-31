@@ -114,8 +114,6 @@ ZMK_MACRO(mac_off,
 ZMK_CONDITIONAL_LAYER(mac_navigation, MAC NAVIGATION, NAVIGATION_MAC)
 ZMK_CONDITIONAL_LAYER(mac_canary, MAC CANARY, CANARY_MAC)
 
-ZMK_COMBO(caps_word, &caps_word, LM1 RM1)
-
 ZMK_CONDITIONAL_LAYER(kbd_layer, SYMBOL FUNCTION, KEYBOARD)
 
 ZMK_TRI_STATE(alt_tab, bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>; ignored-key-positions = <LT2 LT1 RM0 RM1 RM2 RM3>;)
@@ -183,11 +181,11 @@ ZMK_TRI_STATE(alt_tab_m, bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>; ignored-k
         navigation_layer {
             bindings = <
             //                      ╭──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────╮
-            //                      │          │<prev win>│<next win>│  REDO    │   │  HOME    │ PG DOWN  │  PG UP   │  END     │
-                                       _       &kp LS(TAB)  &alt_tab    REDO          &kp HOME   &kp PG_DN  &kp PG_UP  &kp END      
+            //                      │ C+A+DEL  │ PREV WIN │ NEXT WIN │  REDO    │   │  HOME    │ PG DOWN  │  PG UP   │  END     │
+                                &kp LC(LA(DEL)) &kp LS(TAB) &alt_tab    REDO          &kp HOME   &kp PG_DN  &kp PG_UP  &kp END      
             //╭──────────┬──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┬──────────╮
-            //│ C+A+DEL  │          │          │          │          │  UNDO    │   │  LEFT    │  DOWN    │  UP      │  RIGHT   │  TAB     │SHIFT+TAB │
-           &kp LC(LA(DEL))  _          _          _          _          UNDO          &kp LEFT   &kp DOWN    &kp UP   &kp RIGHT   &kp TAB   &kp LS(TAB) 
+            //│CAPS WORD │          │          │          │          │  UNDO    │   │  LEFT    │  DOWN    │  UP      │  RIGHT   │  TAB     │SHIFT+TAB │
+               &caps_word   _          _          _          _          UNDO          &kp LEFT   &kp DOWN    &kp UP   &kp RIGHT   &kp TAB   &kp LS(TAB) 
             //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
             //           │SELECT ALL│  CUT     │  COPY    │  PASTE   │          │   │ PRNTSCRN │  REPEAT  │  DELETE  │  MB4     │  MB5     │
                            SEL_ALL     CUT        COPY       PASTE      _            &kp PSCRN  &key_repeat  &kp DEL   &mkp MB4   &mkp MB5
