@@ -214,8 +214,8 @@ ZMK_TRI_STATE(alt_tab_m, bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>; ignored-k
             //│  >       │          │          │          │          │          │   │  &       │  -       │  _       │  '       │  "       │  <       │
                  &kp GT     _          _          _          _          _             &kp AMPS   &kp MINUS  &kp UNDER   &kp SQT    &kp DQT    &kp LT  
             //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
-            //           │          │          │  `       │  ^       │          │   │  ;       │  :       │  =       │  ~       │  |       │
-                            _          _         &kp GRAVE  &kp CARET   _             &kp SEMI  &kp COLON  &kp EQUAL  &kp TILDE   &kp PIPE  
+            //           │          │  ^       │  `       │  @       │          │   │  ;       │  :       │  =       │  ~       │  |       │
+                            _         &kp CARET  &kp GRAVE   &kp AT     _             &kp SEMI  &kp COLON  &kp EQUAL  &kp TILDE   &kp PIPE  
             //           ╰──────────┴──────────┴──────────┤──────────█▀▀▀▀▀▀▀▀▀▀█   ├──────────┼──────────┼──────────┴──────────┴──────────╯
             //                                            │          ▌          ▐   │          │          │
                                                              _          _              _          _         
