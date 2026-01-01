@@ -215,7 +215,7 @@ ZMK_TRI_STATE(alt_tab_m, bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>; ignored-k
                  &kp GT     _          _          _          _          _             &kp AMPS   &kp MINUS  &kp UNDER   &kp SQT    &kp DQT    &kp LT  
             //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
             //           │          │          │  `       │  ^       │          │   │  ;       │  :       │  =       │  ~       │  |       │
-                            _          _         &kp GRAVE  &kp CARET                 &kp SEMI  &kp COLON  &kp EQUAL  &kp TILDE   &kp PIPE  
+                            _          _         &kp GRAVE  &kp CARET   _             &kp SEMI  &kp COLON  &kp EQUAL  &kp TILDE   &kp PIPE  
             //           ╰──────────┴──────────┴──────────┤──────────█▀▀▀▀▀▀▀▀▀▀█   ├──────────┼──────────┼──────────┴──────────┴──────────╯
             //                                            │          ▌          ▐   │          │          │
                                                              _          _              _          _         
@@ -229,8 +229,8 @@ ZMK_TRI_STATE(alt_tab_m, bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>; ignored-k
             //                      │    9     │    8     │    7     │          │   │          │  $       │  £       │  %       │ 
                                        &kp N9     &kp N8     &kp N7     _              _        &kp DOLLAR  &uc GBP  &kp PERCENT
             //╭──────────┬──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┬──────────╮
-            //│          │    3     │    2     │    1     │    0     │          │   │  =       │          │          │          │          │  .       │
-                 _          &kp N3     &kp N2     &kp N1     &kp N0     _            &kp EQUAL    _          _          _          _         &kp DOT   
+            //│          │    3     │    2     │    1     │    0     │          │   │          │          │          │          │          │  =       │
+                 _          &kp N3     &kp N2     &kp N1     &kp N0     _              _          _          _          _          _        &kp EQUAL  
             //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
             //           │          │    6     │    5     │    4     │          │   │  /       │  +       │  -       │   *      │  ,       │
                             _          &kp N6     &kp N5     &kp N4     _            &kp SLASH   &kp PLUS  &kp MINUS  &kp ASTRK  &kp COMMA
@@ -269,7 +269,7 @@ ZMK_TRI_STATE(alt_tab_m, bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>; ignored-k
                  _   &bt BT_SEL 3  &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0  _           _         &mac_on    &mac_off    _          _          _
             //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
             //           │  BT CLR  │          │          │          │          │   │          │  CANARY  │  QWERTY  │          │          │
-                          &bt BT_CLR   _          _          _          _              _   &tog_on CANARY &tog_off CANARY _        _      
+                          &bt BT_CLR   _          _       &bt BT_SEL 4  _              _   &tog_on CANARY &tog_off CANARY _        _      
             //           ╰──────────┴──────────┴──────────┤──────────█▀▀▀▀▀▀▀▀▀▀█   █▀▀▀▀▀▀▀▀▀▀█──────────┼──────────┴──────────┴──────────╯
             //                                            │          ▌          ▐   ▌          ▐          │ 
                                                              _          _              _          _
