@@ -262,14 +262,14 @@ ZMK_TRI_STATE(alt_tab_m, bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>; ignored-k
         keyboard_layer {
             bindings = <
             //                      ╭──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────╮
-            //                      │          │          │  BT 4    │          │   │          │ OUT USB  │ OUT BLE  │          │
-                                       _          _       &bt BT_SEL 4  _              _      &out OUT_USB &out OUT_BLE _       
+            //                      │          │          │          │          │   │          │ OUT USB  │ OUT BLE  │          │
+                                       _          _          _          _              _      &out OUT_USB &out OUT_BLE _       
             //╭──────────┬──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┬──────────╮
             //│          │  BT 3    │  BT 2    │  BT 1    │  BT 0    │          │   │          │ MAC ON   │ MAC OFF  │          │          │          │   
                  _   &bt BT_SEL 3  &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0  _           _         &mac_on    &mac_off    _          _          _
             //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
-            //           │  BT CLR  │          │          │          │          │   │          │  CANARY  │  QWERTY  │          │          │
-                          &bt BT_CLR   _          _       &bt BT_SEL 4  _              _   &tog_on CANARY &tog_off CANARY _        _      
+            //           │  BT CLR  │  BT DC   │          │          │          │   │          │  CANARY  │  QWERTY  │          │          │
+                          &bt BT_CLR &bt BT_DISC  _       &bt BT_SEL 4  _              _   &tog_on CANARY &tog_off CANARY _        _      
             //           ╰──────────┴──────────┴──────────┤──────────█▀▀▀▀▀▀▀▀▀▀█   █▀▀▀▀▀▀▀▀▀▀█──────────┼──────────┴──────────┴──────────╯
             //                                            │          ▌          ▐   ▌          ▐          │ 
                                                              _          _              _          _
