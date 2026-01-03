@@ -185,7 +185,7 @@ ZMK_TRI_STATE(alt_tab_m, bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>; ignored-k
                                 &kp LC(LA(DEL)) &kp LS(TAB) &alt_tab    REDO          &kp HOME   &kp PG_DN  &kp PG_UP  &kp END      
             //╭──────────┬──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┬──────────╮
             //│CAPS WORD │          │          │          │          │  UNDO    │   │  LEFT    │  DOWN    │  UP      │  RIGHT   │  TAB     │SHIFT+TAB │
-               &caps_word   _          _          _          _          UNDO          &kp LEFT   &kp DOWN    &kp UP   &kp RIGHT   &kp TAB   &kp LS(TAB) 
+               &caps_word  &kp LGUI   &kp LALT  &kp LCTRL  &kp LSHFT    UNDO          &kp LEFT   &kp DOWN    &kp UP   &kp RIGHT   &kp TAB   &kp LS(TAB) 
             //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
             //           │SELECT ALL│  CUT     │  COPY    │  PASTE   │          │   │ PRNTSCRN │  REPEAT  │  DELETE  │  MB4     │  MB5     │
                            SEL_ALL     CUT        COPY       PASTE      _            &kp PSCRN  &key_repeat  &kp DEL   &mkp MB4   &mkp MB5
@@ -199,7 +199,7 @@ ZMK_TRI_STATE(alt_tab_m, bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>; ignored-k
         navigation_mac_layer {
             bindings = <
                 _ _ &alt_tab_m REDO_M  _ _ _ _
-                _ _ _ _ _ UNDO_M  _ _ _ _ _ _
+                _ &kp LCTRL &kp LALT &kp LGUI &kp LSHFT UNDO_M  _ _ _ _ _ _
                 SEL_ALL_M CUT_M COPY_M PASTE_M _  _ _ _ _ _
                 _ _  _ DEL_WORD_M
             >;
