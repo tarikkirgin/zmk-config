@@ -203,7 +203,7 @@ ZMK_TRI_STATE(alt_tab_m, bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>; ignored-k
                &caps_word  &kp LGUI   &kp LALT  &kp LCTRL  &kp LSHFT    UNDO          &kp LEFT   &kp DOWN    &kp UP   &kp RIGHT   &kp TAB   &kp LS(TAB) 
             //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
             //           │SELECT ALL│  CUT     │  COPY    │  PASTE   │          │   │ PRNTSCRN │  REPEAT  │  DELETE  │  MB4     │  MB5     │
-                           SEL_ALL     CUT        COPY       PASTE      _            &kp PSCRN  &key_repeat  &kp DEL   &mkp MB4   &mkp MB5
+                           SEL_ALL     CUT        COPY       PASTE  &num_word NUMBER &kp PSCRN  &key_repeat  &kp DEL   &mkp MB4   &mkp MB5
             //           ╰──────────┴──────────┴──────────█▀▀▀▀▀▀▀▀▀▀█──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
             //                                            ▌          ▐          │   │  CANCEL  │ DEL WORD │
                                                              _          _           &kp K_CANCEL DEL_WORD
