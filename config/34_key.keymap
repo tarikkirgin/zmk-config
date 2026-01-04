@@ -65,6 +65,7 @@
 &num_word {
   continue-list = <
         DOLLAR GBP
+        N1 N2 N3 N4 N5 N6 N7 N8 N9 N0
         DOT COMMA PLUS MINUS STAR FSLH EQUAL
         BSPC DEL LSHFT LCTRL
         LEFT DOWN UP RIGHT
