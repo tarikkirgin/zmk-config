@@ -54,7 +54,21 @@
 };
 
 &caps_word {
-    continue-list = <UNDERSCORE MINUS BSPC DEL N1 N2 N3 N4 N5 N6 N7 N8 N9 N0 LEFT DOWN UP RIGHT>;
+    continue-list = <
+        UNDERSCORE MINUS
+        N1 N2 N3 N4 N5 N6 N7 N8 N9 N0
+        BSPC DEL LSHFT LCTRL
+        LEFT DOWN UP RIGHT
+    >;
+};
+
+&num_word {
+  continue-list = <
+        DOLLAR GBP
+        DOT COMMA PLUS MINUS STAR FSLH EQUAL
+        BSPC DEL LSHFT LCTRL
+        LEFT DOWN UP RIGHT
+    >;
 };
 
 ZMK_HOLD_TAP(hl,
