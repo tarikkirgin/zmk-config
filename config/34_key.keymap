@@ -54,9 +54,7 @@
 };
 
 &caps_word {
-    continue-list = <UNDERSCORE MINUS BSPC DEL LEFT DOWN UP RIGHT>;
-    ignore-numbers;
-    ignore-modifiers;
+    continue-list = <UNDERSCORE MINUS BSPC DEL N0 N1 N2 N3 N4 N5 N6 N7 N8 N9 LGUI LALT LCTRL LSHFT LEFT DOWN UP RIGHT>;
 };
 
 &num_word {
