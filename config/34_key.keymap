@@ -54,22 +54,14 @@
 };
 
 &caps_word {
-    continue-list = <
-        UNDERSCORE MINUS
-        N1 N2 N3 N4 N5 N6 N7 N8 N9 N0
-        BSPC DEL LSHFT LCTRL
-        LEFT DOWN UP RIGHT
-    >;
+    continue-list = <UNDERSCORE MINUS BSPC DEL LEFT DOWN UP RIGHT>;
+    ignore-numbers;
+    ignore-modifiers;
 };
 
 &num_word {
-  continue-list = <
-        DOLLAR GBP
-        N1 N2 N3 N4 N5 N6 N7 N8 N9 N0
-        DOT COMMA PLUS MINUS STAR FSLH EQUAL
-        BSPC DEL LSHFT LCTRL
-        LEFT DOWN UP RIGHT
-    >;
+    continue-list = <DOLLAR GBP DOT COMMA PLUS MINUS STAR FSLH EQUAL BSPC DEL LEFT DOWN UP RIGHT>;
+    ignore-modifiers;
 };
 
 ZMK_HOLD_TAP(hl,
@@ -202,7 +194,7 @@ ZMK_TRI_STATE(alt_tab_m, bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>; ignored-k
             //│CAPS WORD │          │          │          │          │  UNDO    │   │  LEFT    │  DOWN    │  UP      │  RIGHT   │  TAB     │SHIFT+TAB │
                &caps_word  &kp LGUI   &kp LALT  &kp LCTRL  &kp LSHFT    UNDO          &kp LEFT   &kp DOWN    &kp UP   &kp RIGHT   &kp TAB   &kp LS(TAB) 
             //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
-            //           │SELECT ALL│  CUT     │  COPY    │  PASTE   │          │   │ PRNTSCRN │  REPEAT  │  DELETE  │  MB4     │  MB5     │
+            //           │SELECT ALL│  CUT     │  COPY    │  PASTE   │ NUM WORD │   │ PRNTSCRN │  REPEAT  │  DELETE  │  MB4     │  MB5     │
                            SEL_ALL     CUT        COPY       PASTE  &num_word NUMBER &kp PSCRN  &key_repeat  &kp DEL   &mkp MB4   &mkp MB5
             //           ╰──────────┴──────────┴──────────█▀▀▀▀▀▀▀▀▀▀█──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
             //                                            ▌          ▐          │   │  CANCEL  │ DEL WORD │
@@ -250,8 +242,8 @@ ZMK_TRI_STATE(alt_tab_m, bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>; ignored-k
             //           │          │    6     │    5     │    4     │          │   │  /       │  +       │  -       │   *      │  ,       │
                             _          &kp N6     &kp N5     &kp N4     _            &kp SLASH   &kp PLUS  &kp MINUS  &kp ASTRK  &kp COMMA
             //           ╰──────────┴──────────┴──────────┤──────────┼──────────┼   ├──────────█▀▀▀▀▀▀▀▀▀▀█──────────┴──────────┴──────────╯
-            //                                            │          │ NUM WORD │   │          ▌          ▐
-                                                             _     &num_word NUMBER    _          _         
+            //                                            │          │          │   │          ▌          ▐
+                                                             _          _              _          _         
             //                                            ╰──────────┴──────────╯   ╰──────────▙▄▄▄▄▄▄▄▄▄▄▟
             >;
         };
