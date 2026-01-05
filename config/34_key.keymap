@@ -267,8 +267,8 @@ ZMK_TRI_STATE(alt_tab_m, bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>; ignored-k
         keyboard_layer {
             bindings = <
             //                      ╭──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────╮
-            //                      │BT CLR ALL│  BT CLR  │          │  BT DC   │   │          │ OUT USB  │ OUT BLE  │          │
-                                  &bt BT_CLR_ALL &bt BT_CLR  _       &bt BT_DISC       _      &out OUT_USB &out OUT_BLE _       
+            //                      │BT CLR ALL│          │          │  BT CLR  │   │          │ OUT USB  │ OUT BLE  │          │
+                                  &bt BT_CLR_ALL  _          _        &bt BT_CLR       _      &out OUT_USB &out OUT_BLE _       
             //╭──────────┬──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┬──────────╮
             //│          │  BT 3    │  BT 2    │  BT 1    │  BT 0    │          │   │          │ MAC ON   │ MAC OFF  │          │          │          │   
                  _   &bt BT_SEL 3  &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0  _           _         &mac_on    &mac_off    _          _          _
