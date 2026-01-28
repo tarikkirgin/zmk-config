@@ -200,8 +200,8 @@ ZMK_TRI_STATE(alt_tab_m, bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>; ignored-k
             //│CAPS WORD │          │          │          │          │  UNDO    │   │  LEFT    │  DOWN    │  UP      │  RIGHT   │  TAB     │SHIFT+TAB │
                &caps_word  &kp LGUI   &kp LALT  &kp LCTRL  &kp LSHFT    UNDO          &kp LEFT   &kp DOWN    &kp UP   &kp RIGHT   &kp TAB   &kp LS(TAB) 
             //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
-            //           │SELECT ALL│  CUT     │  COPY    │  PASTE   │ NUM WORD │   │ PRNTSCRN │  REPEAT  │  DELETE  │  MB4     │  MB5     │
-                           SEL_ALL     CUT        COPY       PASTE  &num_word NUMBER &kp PSCRN  &key_repeat  &kp DEL   &mkp MB4   &mkp MB5
+            //           │SELECT ALL│  CUT     │  COPY    │  PASTE   │ NUM WORD │   │ PRNTSCRN │  REPEAT  │  DELETE  │  INSERT  │          │
+                           SEL_ALL     CUT        COPY       PASTE  &num_word NUMBER &kp PSCRN  &key_repeat  &kp DEL  &kp INSERT   _
             //           ╰──────────┴──────────┴──────────█▀▀▀▀▀▀▀▀▀▀█──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
             //                                            ▌          ▐          │   │  CANCEL  │ DEL WORD │
                                                              _          _           &kp K_CANCEL DEL_WORD
@@ -260,8 +260,8 @@ ZMK_TRI_STATE(alt_tab_m, bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>; ignored-k
             //                      │    F9    │    F8    │    F7    │   F12    │   │          │BRIGHT UP │BRIGHT DN │          │
                                        &kp F9     &kp F8     &kp F7    &kp F12         _      &kp C_BRI_UP &kp C_BRI_DN _       
             //╭──────────┬──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┬──────────╮
-            //│   CAPS   │   F3     │    F2    │    F1    │   F10    │   F11    │   │  INSERT  │  VOL UP  │ VOL DOWN │  MUTE    │          │          │ 
-                &kp CAPS    &kp F3     &kp F2     &kp F1    &kp F10    &kp F11        &kp INS  &kp C_VOL_UP &kp C_VOL_DN &kp C_MUTE _          _   
+            //│   CAPS   │   F3     │    F2    │    F1    │   F10    │   F11    │   │          │  VOL UP  │ VOL DOWN │  MUTE    │          │          │ 
+                &kp CAPS    &kp F3     &kp F2     &kp F1    &kp F10    &kp F11         _       &kp C_VOL_UP &kp C_VOL_DN &kp C_MUTE _          _   
             //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
             //           │          │    F6    │    F5    │    F4    │          │   │          │PLAY/PAUSE│  NEXT    │ PREVIOUS │          │
                             _          &kp F6     &kp F5     &kp F4     _              _         &kp C_PP  &kp C_NEXT &kp C_PREV   _       
