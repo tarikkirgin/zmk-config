@@ -142,8 +142,8 @@ ZMK_TRI_STATE(alt_tab_m, bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>; ignored-k
             //                      │  W       │  E       │  R       │  T       │   │  Y       │  U       │  I       │  O       │
                                        &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O     
             //╭──────────┬──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┬──────────╮
-            //│  Q       │  A       │  S       │  D       │  F       │  G       │   │  H       │  J       │  K       │  L       │  ; :     │  P       │
-              &hl RHYP Q &hl LGUI A &hl LALT S &hl LCTRL D &hl LSHFT F  &kp G         &kp H &hr RSHFT J &hr RCTRL K &hr RALT L &hr RGUI SEMI &hr RHYP P
+            //│  Q       │  A       │  S       │  D       │  F       │  G       │   │  H       │  J       │  K       │  L       │  ' "     │  P       │
+              &hl RHYP Q &hl LGUI A &hl LALT S &hl LCTRL D &hl LSHFT F  &kp G         &kp H &hr RSHFT J &hr RCTRL K &hr RALT L &hr RGUI SQT &hr RHYP P
             //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
             //           │  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , ?      │ . !      │  / \     │
                             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M    &comma_ques &dot_excl &slash_both
@@ -224,8 +224,8 @@ ZMK_TRI_STATE(alt_tab_m, bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>; ignored-k
             //                      │  ]       │  }       │  )       │  #       │   │  \       │  (       │  {       │  [       │
                                       &kp RBKT   &kp RBRC   &kp RPAR   &kp HASH       &kp BSLH   &kp LPAR   &kp LBRC   &kp LBKT 
             //╭──────────┬──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┬──────────╮
-            //│  >       │          │          │          │          │          │   │  &       │  -       │  _       │  '       │  "       │  <       │
-                 &kp GT     _          _          _          _          _             &kp AMPS   &kp MINUS  &kp UNDER   &kp SQT    &kp DQT    &kp LT  
+            //│  >       │          │          │          │          │          │   │  &       │  -       │  _       │  *       │  +       │  <       │
+                 &kp GT     _          _          _          _          _             &kp AMPS   &kp MINUS  &kp UNDER  &kp ASTRK  &kp PLUS   &kp LT  
             //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
             //           │          │  ^       │  `       │  @       │          │   │  ;       │  :       │  =       │  ~       │  |       │
                             _         &kp CARET  &kp GRAVE   &kp AT     _             &kp SEMI  &kp COLON  &kp EQUAL  &kp TILDE   &kp PIPE  
