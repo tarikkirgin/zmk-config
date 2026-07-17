@@ -200,8 +200,8 @@ ZMK_TRI_STATE(alt_tab_m, bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>; ignored-k
             //│CAPS WORD │          │          │          │          │  UNDO    │   │  LEFT    │  DOWN    │  UP      │  RIGHT   │  TAB     │SHIFT+TAB │
                &caps_word  &kp LGUI   &kp LALT  &kp LCTRL  &kp LSHFT    UNDO          &kp LEFT   &kp DOWN    &kp UP   &kp RIGHT   &kp TAB   &kp LS(TAB) 
             //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
-            //           │SELECT ALL│  CUT     │  COPY    │  PASTE   │ NUM WORD │   │ PRNTSCRN │  REPEAT  │  DELETE  │  INSERT  │          │
-                           SEL_ALL     CUT        COPY       PASTE  &num_word NUMBER &kp PSCRN  &key_repeat  &kp DEL  &kp INSERT   _
+            //           │SELECT ALL│  CUT     │  COPY    │  PASTE   │ NUM WORD │   │ PRNTSCRN │  DELETE  │  INSERT  │  REPEAT  │          │
+                           SEL_ALL     CUT        COPY       PASTE  &num_word NUMBER  &kp PSCRN   &kp DEL  &kp INSERT  &key_repeat  _ 
             //           ╰──────────┴──────────┴──────────█▀▀▀▀▀▀▀▀▀▀█──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
             //                                            ▌          ▐          │   │  CANCEL  │ DEL WORD │
                                                              _          _           &kp K_CANCEL DEL_WORD
@@ -221,14 +221,14 @@ ZMK_TRI_STATE(alt_tab_m, bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>; ignored-k
         symbol_layer {
             bindings = <
             //                      ╭──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────╮
-            //                      │  ]       │  }       │  )       │  #       │   │  \       │  (       │  {       │  [       │
-                                      &kp RBKT   &kp RBRC   &kp RPAR   &kp HASH       &kp BSLH   &kp LPAR   &kp LBRC   &kp LBKT 
+            //                      │  ]       │  }       │  )       │  $       │   │  %       │  (       │  {       │  [       │
+                                      &kp RBKT   &kp RBRC   &kp RPAR  &kp DOLLAR     &kp PERCENT &kp LPAR   &kp LBRC   &kp LBKT 
             //╭──────────┬──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┬──────────╮
-            //│  >       │          │          │          │          │          │   │  &       │  -       │  _       │  *       │  +       │  <       │
-                 &kp GT     _          _          _          _          _             &kp AMPS   &kp MINUS  &kp UNDER  &kp ASTRK  &kp PLUS   &kp LT  
+            //│  >       │  @       │  ^       │  `       │  =       │  #       │   │  +       │  -       │  _       │  *       │  /       │  <       │
+                 &kp GT     &kp AT    &kp CARET  &kp GRAVE  &kp EQUAL  &kp HASH       &kp PLUS   &kp MINUS  &kp UNDER  &kp ASTRK  &kp FSLH    &kp LT  
             //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
-            //           │          │  ^       │  `       │  @       │          │   │  ;       │  :       │  =       │  ~       │  |       │
-                            _         &kp CARET  &kp GRAVE   &kp AT     _             &kp SEMI  &kp COLON  &kp EQUAL  &kp TILDE   &kp PIPE  
+            //           │          │          │          │  |       │          │   │  ;       │  :       │  &       │  ~       │  !       │
+                            _          _          _         &kp PIPE    _             &kp SEMI  &kp COLON   &kp AMPS  &kp TILDE   &kp EXCL  
             //           ╰──────────┴──────────┴──────────┤──────────█▀▀▀▀▀▀▀▀▀▀█   ├──────────┼──────────┼──────────┴──────────┴──────────╯
             //                                            │          ▌          ▐   │          │          │
                                                              _          _              _          _         
@@ -239,14 +239,14 @@ ZMK_TRI_STATE(alt_tab_m, bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>; ignored-k
         number_layer {
             bindings = <
             //                      ╭──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────╮
-            //                      │    9     │    8     │    7     │          │   │          │  $       │  £       │  %       │ 
-                                       &kp N9     &kp N8     &kp N7     _              _        &kp DOLLAR  &uc GBP  &kp PERCENT
+            //                      │    9     │    8     │    7     │  :       │   │          │  $       │  £       │  %       │ 
+                                       &kp N9     &kp N8     &kp N7   &kp COLON        _        &kp DOLLAR  &uc GBP  &kp PERCENT
             //╭──────────┬──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┬──────────╮
-            //│          │    3     │    2     │    1     │    0     │          │   │          │          │          │          │          │  =       │
-                 _          &kp N3     &kp N2     &kp N1     &kp N0     _              _          _          _          _          _        &kp EQUAL  
+            //│          │    3     │    2     │    1     │    0     │  .       │   │  /       │  +       │  -       │   *      │  =       │          │
+                 _          &kp N3     &kp N2     &kp N1     &kp N0    &kp DOT       &kp SLASH   &kp PLUS  &kp MINUS  &kp ASTRK   &kp EQUAL   _
             //╰──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
-            //           │   DOT    │    6     │    5     │    4     │          │   │  /       │  +       │  -       │   *      │  ,       │
-                            &kp DOT    &kp N6     &kp N5     &kp N4     _            &kp SLASH   &kp PLUS  &kp MINUS  &kp ASTRK  &kp COMMA
+            //           │          │    6     │    5     │    4     │          │   │          │          │          │          │          │
+                            _          &kp N6     &kp N5     &kp N4     _              _          _          _          _          _
             //           ╰──────────┴──────────┴──────────┤──────────┼──────────┼   ├──────────█▀▀▀▀▀▀▀▀▀▀█──────────┴──────────┴──────────╯
             //                                            │          │          │   │          ▌          ▐
                                                              _          _              _          _         
