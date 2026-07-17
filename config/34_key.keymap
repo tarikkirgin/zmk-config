@@ -63,6 +63,7 @@
 };
 
 #define QUICK_TAP_MS 175
+#define REQUIRE_PRIOR_IDLE_MS 100
 
 &lt {
   flavor = "balanced";
@@ -74,7 +75,7 @@ ZMK_HOLD_TAP(hl,
     flavor = "balanced";
     tapping-term-ms = <280>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    require-prior-idle-ms = <150>;
+    require-prior-idle-ms = <REQUIRE_PRIOR_IDLE_MS>;
     bindings = <&kp>, <&kp>;
     hold-trigger-key-positions = <KEYS_R KEYS_THUMB>;
     hold-trigger-on-release;
@@ -84,7 +85,7 @@ ZMK_HOLD_TAP(hr,
     flavor = "balanced";
     tapping-term-ms = <280>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    require-prior-idle-ms = <150>;
+    require-prior-idle-ms = <REQUIRE_PRIOR_IDLE_MS>;
     bindings = <&kp>, <&kp>;
     hold-trigger-key-positions = <KEYS_L KEYS_THUMB>;
     hold-trigger-on-release;
